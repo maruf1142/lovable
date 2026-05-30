@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Maison Noir — A modern luxury restaurant offering refined seasonal cuisine. Book your table or explore our menu." />
+<title>Maison Noir — Modern Luxury Restaurant</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo"><span>Maison</span> Noir</a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Est. 2010 · Fine Dining</p>
+    <h1 class="hero-title">Maison <span>Noir</span></h1>
+    <p class="hero-tagline">Where every dish tells a story of passion, craft, and quiet luxury.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-gold">Book a Table</a>
+      <a href="#menu" class="btn btn-outline">View Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <p class="eyebrow">Our Story</p>
+      <h2>Refined cuisine, rooted in tradition.</h2>
+      <p>Born from a love of seasonal ingredients and timeless technique, Maison Noir blends European elegance with contemporary boldness. Each plate is composed to delight the eye and the palate.</p>
+      <p>Led by Chef Antoine Laurent, our kitchen sources from local farms and the day's best market to bring you food that feels both familiar and unforgettable.</p>
+      <ul class="about-features">
+        <li><i class="fa-solid fa-leaf"></i> Farm-to-table sourcing</li>
+        <li><i class="fa-solid fa-utensils"></i> Award-winning chef</li>
+        <li><i class="fa-solid fa-wine-glass"></i> Curated wine pairings</li>
+      </ul>
+    </div>
+    <div class="about-images">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Restaurant ambiance" class="about-img-1">
+      <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" alt="Chef plating a dish" class="about-img-2">
+    </div>
+  </div>
+</section>
+
+<!-- Search + Menu -->
+<section class="section menu-section" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Our Menu</p>
+      <h2>Crafted with care, served with love.</h2>
+    </div>
+
+    <div class="menu-tools">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search by name, ID or category…" aria-label="Search menu">
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="All">All</button>
+        <button class="filter-btn" data-cat="Starters">Starters</button>
+        <button class="filter-btn" data-cat="Main Course">Main Course</button>
+        <button class="filter-btn" data-cat="Seafood">Seafood</button>
+        <button class="filter-btn" data-cat="Vegetarian">Vegetarian</button>
+        <button class="filter-btn" data-cat="Desserts">Desserts</button>
+        <button class="filter-btn" data-cat="Drinks">Drinks</button>
+      </div>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- Cards injected by JS -->
+      <div class="loading">Loading menu…</div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured -->
+<section class="section featured" id="featured">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Chef's Picks</p>
+      <h2>Featured Favorites</h2>
+    </div>
+    <div class="featured-grid" id="featuredGrid"></div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Gallery</p>
+      <h2>A glimpse inside Maison Noir</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Dining room"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Plated dish"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80" alt="Kitchen"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1485921325833-c519f76c4927?auto=format&fit=crop&w=800&q=80" alt="Ambiance"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Gourmet food"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=800&q=80" alt="Dessert"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Reviews</p>
+      <h2>What our guests say</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <img src="https://i.pravatar.cc/100?img=32" alt="Sophie M.">
+        <h4>Sophie M.</h4>
+        <div class="stars">★★★★★</div>
+        <p>"An unforgettable evening. Every course was a masterpiece — the truffle risotto stays with me."</p>
+      </div>
+      <div class="review-card">
+        <img src="https://i.pravatar.cc/100?img=12" alt="James R.">
+        <h4>James R.</h4>
+        <div class="stars">★★★★★</div>
+        <p>"Refined, intimate, and worth every moment. The wine pairings are exceptional."</p>
+      </div>
+      <div class="review-card">
+        <img src="https://i.pravatar.cc/100?img=47" alt="Aiko T.">
+        <h4>Aiko T.</h4>
+        <div class="stars">★★★★★</div>
+        <p>"Beautifully plated, deeply flavorful. The dessert tasting was the highlight of the trip."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <p class="eyebrow">Visit Us</p>
+      <h2>We'd love to host you</h2>
+      <ul class="contact-info">
+        <li><i class="fa-solid fa-location-dot"></i> 12 Rue Lumière, Paris 75008</li>
+        <li><i class="fa-solid fa-phone"></i> +33 1 23 45 67 89</li>
+        <li><i class="fa-solid fa-envelope"></i> hello@maisonnoir.com</li>
+        <li><i class="fa-solid fa-clock"></i> Tue – Sun · 6:00 PM – 11:00 PM</li>
+      </ul>
+    </div>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps?q=Paris&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="#home" class="logo"><span>Maison</span> Noir</a>
+      <p class="muted">Modern luxury dining, every evening.</p>
+    </div>
+    <div>
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Follow</h5>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">© <span id="year"></span> Maison Noir. All rights reserved.</div>
+</footer>
+
+<!-- Cart Drawer -->
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button id="closeCart" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-summary" id="cartSummary"></div>
+</aside>
+<div class="cart-backdrop" id="cartBackdrop"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

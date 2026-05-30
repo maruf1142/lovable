@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maison Noir — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- Login -->
+<section class="login-wrap" id="loginWrap">
+  <form class="login-card" id="loginForm">
+    <h1>Admin <span>Login</span></h1>
+    <p class="muted">Sign in to manage the menu</p>
+    <label>Username
+      <input type="text" id="username" required autocomplete="username" placeholder="admin">
+    </label>
+    <label>Password
+      <input type="password" id="password" required autocomplete="current-password" placeholder="admin123">
+    </label>
+    <button type="submit" class="btn-gold">Sign in</button>
+    <p class="hint">Demo: <code>admin</code> / <code>admin123</code></p>
+    <p id="loginError" class="error"></p>
+    <a href="index.html" class="back">← Back to site</a>
+  </form>
+</section>
+
+<!-- Dashboard -->
+<section class="dashboard hidden" id="dashboard">
+  <header class="dash-header">
+    <div class="logo">Maison <span>Noir</span> · Admin</div>
+    <div class="dash-actions">
+      <a href="index.html" target="_blank" class="link">View site ↗</a>
+      <button id="logoutBtn" class="btn-outline">Logout</button>
+    </div>
+  </header>
+
+  <div class="stats-grid">
+    <div class="stat"><span>Total Items</span><strong id="statTotal">0</strong></div>
+    <div class="stat"><span>Available</span><strong id="statAvail">0</strong></div>
+    <div class="stat"><span>Unavailable</span><strong id="statUnavail">0</strong></div>
+    <div class="stat"><span>Popular</span><strong id="statPopular">0</strong></div>
+  </div>
+
+  <div class="dash-grid">
+    <!-- Form -->
+    <div class="card form-card">
+      <h2 id="formTitle">Add New Item</h2>
+      <form id="itemForm">
+        <div class="row-2">
+          <label>Food ID <input id="f_id" required placeholder="F013"></label>
+          <label>Category
+            <select id="f_cat" required>
+              <option>Starters</option><option>Main Course</option><option>Seafood</option>
+              <option>Vegetarian</option><option>Desserts</option><option>Drinks</option>
+            </select>
+          </label>
+        </div>
+        <label>Food Name <input id="f_name" required></label>
+        <label>Description <textarea id="f_desc" rows="2"></textarea></label>
+        <div class="row-3">
+          <label>Price <input id="f_price" type="number" step="0.01" required></label>
+          <label>Discount % <input id="f_disc" type="number" step="1" value="0"></label>
+          <label>VAT % <input id="f_vat" type="number" step="1" value="10"></label>
+        </div>
+        <label>Image URL <input id="f_img" placeholder="https://…"></label>
+        <div class="row-2">
+          <label class="check"><input type="checkbox" id="f_avail" checked> Available</label>
+          <label class="check"><input type="checkbox" id="f_pop"> Popular</label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-gold" id="submitBtn">Add Item</button>
+          <button type="button" id="cancelEdit" class="btn-outline hidden">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- List -->
+    <div class="card list-card">
+      <div class="list-head">
+        <h2>Menu Items</h2>
+        <input type="text" id="adminSearch" placeholder="Search by ID, name or category…">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Cat</th><th>Price</th><th>Status</th><th>Pop</th><th></th></tr>
+          </thead>
+          <tbody id="adminTbody"></tbody>
+        </table>
+      </div>
+      <p class="muted small">Edits are stored locally and override the Google Sheet for this browser. Clear local overrides to return to sheet data.</p>
+      <button id="clearOverrides" class="btn-outline small">Reset to Google Sheet data</button>
+    </div>
+  </div>
+</section>
+
+<script src="admin.js"></script>
+</body>
+</html>
